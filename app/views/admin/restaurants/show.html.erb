@@ -1,0 +1,13 @@
+<h1><%= @restaurant.name %></h1>
+
+<h1>Opening Hours: <%= @restaurant.open_time %></h1><br>
+<h1>Tel :<%= @restaurant.phone %></h1><br>
+<h1>Seat:<%= @restaurant.seat %></h1><br>
+<h1>Description: <%=@restaurant.description %></h1><br>
+
+<h1>Minimum_order: <%=@restaurant.minimum_order %></h1><br>
+<%= image_tag @restaurant.photo , width: '600px' %><br><br>
+<h1>Dining_time: <%=@restaurant.dining_time %></h1><br>
+<h1>Close_time :<%=@restaurant.close_time%></h1><br>
+<br>
+<%=link_to 'back to index',admin_restaurants_path%>

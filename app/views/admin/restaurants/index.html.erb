@@ -1,0 +1,27 @@
+<table >
+        <thead>
+          <tr>
+            <th>Restaurant Name</th>
+            <th>功能</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @restaurants.each do |restaurant|  %>
+          <tr>
+            
+            <td><%= restaurant.name %></td>
+
+            <td><%= link_to 'blog', restaurant_blogs_path(restaurant)  %><%="   "%>
+                <%= link_to 'show',admin_restaurant_path(restaurant)%><%=''%>
+                <%= link_to 'edit', edit_admin_restaurant_path(restaurant) %><%="   "%>
+                <%= link_to 'delete', admin_restaurant_path(restaurant),method: :delete, data:{confirm:"Are you sure?"}%></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
+
+
+<%= link_to 'New Restaurant', new_admin_restaurant_path %>
+

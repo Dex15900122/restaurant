@@ -1,0 +1,37 @@
+<%= form_tag restaurants_path, :method => 'get' do %>
+  
+    <%= text_field_tag :search, params[:search], placeholder: "Search ..." %>
+    <%= submit_tag "Search", name: nil %>
+    <%  end %>
+
+
+
+
+
+
+
+<table >
+        <thead>
+          <tr>
+            <th>Restaurant Name</th>
+            <th>功能</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @restaurants.each do |restaurant|  %>
+          <tr>
+            
+            <td><%= link_to restaurant.name,admin_restaurant_path(restaurant)%><%=''%></td>
+
+            <td><%= link_to 'blog', restaurant_blogs_path(restaurant)  %><%="   "%></td>
+                
+                
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
+
+
+

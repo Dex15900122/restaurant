@@ -1,0 +1,33 @@
+<%= link_to 'New Blog', new_restaurant_blog_path %> <br>
+<table >
+        <thead>
+          <tr>
+            <th>Blog Name</th>
+            <th>description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @blogs.each do |blog|  %>
+          <tr>
+            
+            <th><%= link_to blog.title,restaurant_blog_path(blog.rest_id, blog.id) %></th>
+            <th><%= blog.description%></th>
+            <th><%= image_tag blog.photos, width:'300px' if   blog.photos?%></th>
+            <td>
+                
+                <%= link_to 'edit', edit_restaurant_blog_path(blog.rest_id, blog.id) %><%="   "%>
+                <%= link_to 'delete', restaurant_blog_path(blog.rest_id, blog.id),method: :delete, data:{confirm:"Are you sure?"}%></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+
+
+
+
+
+
+
+
+

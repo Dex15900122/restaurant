@@ -1,0 +1,44 @@
+<% if @restaurant.errors.any? %>
+  <h2>We have some errors here !</h2>
+  <ul>
+    <% @restaurant.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+
+<%= form_for @restaurant,:url => admin_restaurants_path do |f| %>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description %>
+
+  <%= f.label :seat, "可容納人數" %>
+  <%= f.text_field :seat %>
+
+  <%= f.label :minimum_order, "minimum_order" %>
+  <%= f.text_field :minimum_order %>
+
+  <%= f.label :phone, "phone" %>
+  <%= f.text_field :phone %>
+
+  <%= f.label :open_time, "open_time" %>
+  <%= f.text_field :open_time %>
+
+  <%= f.label :dining_time, "dining_time" %>
+  <%= f.text_field :dining_time %>
+
+  <%= f.label :close_time, "close_time" %>
+  <%= f.text_field :close_time %>
+
+  <%= f.label :photo, "photo" %>
+  <%= image_tag @restaurant.photo, width:'300px' if    @restaurant.photo?%>
+  <%= f.file_field :photo %>
+
+
+
+  <%= f.submit %>
+<% end %>
