@@ -1,22 +1,16 @@
 class RestaurantsController < ApplicationController
 
-def index
-  if params[:search]
-     @restaurants = Rest.where('name LIKE ?', "%#{params[:search]}%")
-  else
+  def index
+    if params[:search]
+       @restaurants = Rest.where('name LIKE ?', "%#{params[:search]}%")
+    else
 
-      @restaurants=Rest.all
+        @restaurants=Rest.all
+    end
   end
-end
 
-def show
-@restaurant = Rest.find(params[:id])
-end
-
-
- 
-
-
-
+  def show
+  @restaurant = Rest.find(params[:id])
+  end
 
 end
